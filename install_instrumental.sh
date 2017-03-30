@@ -112,9 +112,10 @@ main ()
   gpg_key_url="https://packagecloud.io/expectedbehavior/instrumental/gpgkey"
   apt_config_url="https://packagecloud.io/install/repositories/expectedbehavior/instrumental/config_file.list?os=${os}&dist=${dist}&source=script"
 
-  apt_source_path="$APT_STATE/config_file.list"
+  apt_source_path="$APT_STATE"
+  apt_source_config_file_list = "$APT_STATE/config_file.list"
 
-  echo -n "Installing $apt_source_path..."
+  echo -n "Installing $apt_source_config_file_list..."
 
   # create an apt config file for this repository
   curl -sSf "${apt_config_url}" > $apt_source_path
@@ -169,11 +170,12 @@ main ()
   # update apt on this system
   apt-get update &> /dev/null
 
-  echo "SourceList: $apt_source_path"
-  cat $apt_source_path
+  echo "SourceList: $apt_source_config_file_list"
+  cat $apt_source_config_file_list
 
-  apt-get update -o Dir::Etc::SourceList="$apt_source_path" \
-    -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"
+  apt-get update -o Dir::Etc::SourceList="$apt_source_config_file_list" \
+    -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0" \
+    -o Dir::Cache::Archives="$apt_source_path" # give it a temporary area to write files
   echo "done."
 
   echo
