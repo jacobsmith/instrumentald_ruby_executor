@@ -1,4 +1,5 @@
 curl
+apt-transport-https
 ca-certificates
 install_instrumental.sh
 instrumentald
