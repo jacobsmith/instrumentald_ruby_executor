@@ -188,6 +188,8 @@ main ()
 
   echo
   echo "The repository is setup! You can now install packages."
+
+  apt-get $APT_OPTIONS install instrumentald
 }
 
 main
