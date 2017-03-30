@@ -112,7 +112,7 @@ main ()
   gpg_key_url="https://packagecloud.io/expectedbehavior/instrumental/gpgkey"
   apt_config_url="https://packagecloud.io/install/repositories/expectedbehavior/instrumental/config_file.list?os=${os}&dist=${dist}&source=script"
 
-  apt_source_path=APT_STATE
+  apt_source_path=$APT_STATE
 
   echo -n "Installing $apt_source_path..."
 
@@ -171,7 +171,7 @@ main ()
 
   echo "SourceList: $apt_source_path/config_file.list"
   cat $apt_source_path/config_file.list
-  
+
   apt-get update -o Dir::Etc::SourceList="$apt_source_path/config_file.list" \
     -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"
   echo "done."
