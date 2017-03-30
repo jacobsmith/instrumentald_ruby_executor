@@ -4,6 +4,9 @@
 
 APT_STATE_DIR=$1
 APT_CACHE_DIR=$2
+APT_OPTIONS="-o debug::nolocking=true -o dir::cache=$APT_CACHE_DIR -o dir::state=$APT_STATE_DIR"
+
+
 
 unknown_os ()
 {
@@ -25,7 +28,7 @@ curl_check ()
     echo "Detected curl..."
   else
     echo "Installing curl..."
-    apt-get install -q -y curl
+    apt-get $APT_OPTIONS install -q -y curl
   fi
 }
 
@@ -97,7 +100,7 @@ main ()
   # Need to first run apt-get update so that apt-transport-https can be
   # installed
   echo -n "Running apt-get update... "
-  apt-get update &> /dev/null
+  apt-get $APT_OPTIONS update &> /dev/null
   echo "done."
 
   # Install the debian-archive-keyring package on debian systems so that
@@ -105,7 +108,7 @@ main ()
   install_debian_keyring
 
   echo -n "Installing apt-transport-https... "
-  apt-get install -y apt-transport-https &> /dev/null
+  apt-get $APT_OPTIONS install -y apt-transport-https &> /dev/null
   echo "done."
 
 
@@ -168,7 +171,7 @@ main ()
 
   echo -n "Running apt-get update... "
   # update apt on this system
-  apt-get update &> /dev/null
+  apt-get $APT_OPTIONS update &> /dev/null
 
   echo "SourceList: $apt_source_config_file_list"
   cat $apt_source_config_file_list
