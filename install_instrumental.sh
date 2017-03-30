@@ -169,10 +169,10 @@ main ()
   # update apt on this system
   apt-get update &> /dev/null
 
-  echo "SourceList: $apt_source_path/config_file.list"
-  cat $apt_source_path/config_file.list
+  echo "SourceList: $apt_source_path"
+  cat $apt_source_path
 
-  apt-get update -o Dir::Etc::SourceList="$apt_source_path/config_file.list" \
+  apt-get update -o Dir::Etc::SourceList="$apt_source_path" \
     -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"
   echo "done."
 
