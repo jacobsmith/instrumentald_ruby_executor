@@ -118,7 +118,7 @@ main ()
   echo -n "Installing $apt_source_config_file_list..."
 
   # create an apt config file for this repository
-  curl -sSf "${apt_config_url}" > $apt_source_path
+  curl -sSf "${apt_config_url}" > $apt_source_config_file_list
   curl_exit_code=$?
 
   if [ "$curl_exit_code" = "22" ]; then
