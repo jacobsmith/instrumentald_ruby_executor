@@ -168,6 +168,8 @@ main ()
   echo -n "Running apt-get update... "
   # update apt on this system
   apt-get update &> /dev/null
+  apt-get update -o Dir::Etc::sourcelist="$apt_source_path/config_file.list" \
+    -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"
   echo "done."
 
   echo
