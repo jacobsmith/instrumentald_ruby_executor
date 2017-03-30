@@ -1,7 +1,6 @@
 #!/bin/bash
 
-dpkg -i $1/instrumentald_1.0.2_i386.deb --force-not-root --root=$HOME 
-
+echo "install instrumental sh file"
 #
 # # Debug
 # # set -x
