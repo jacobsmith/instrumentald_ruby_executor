@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Debug
-set -x
+# set -x
 
 # This is copied from https://packagecloud.io/install/repositories/expectedbehavior/instrumental/script.deb.sh
 
@@ -189,7 +189,8 @@ main ()
   echo
   echo "The repository is setup! You can now install packages."
 
-  apt-get $APT_OPTIONS install instrumentald
+  apt-get $APT_OPTIONS install instrumentald \
+    -o Dir::Etc::SourceList="$apt_source_config_file_list"
 }
 
 main
