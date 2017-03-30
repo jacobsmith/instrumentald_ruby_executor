@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Debug
+set -x
+
 # This is copied from https://packagecloud.io/install/repositories/expectedbehavior/instrumental/script.deb.sh
 
 APT_STATE_DIR=$1
@@ -174,7 +177,6 @@ main ()
   apt-get $APT_OPTIONS update &> /dev/null
 
   echo "SourceList: $apt_source_config_file_list"
-  cat $apt_source_config_file_list
 
   apt-get update -o debug::nolocking=true \
     -o dir::cache=$APT_CACHE_DIR \
