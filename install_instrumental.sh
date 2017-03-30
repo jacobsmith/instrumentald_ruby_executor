@@ -2,8 +2,8 @@
 
 # This is copied from https://packagecloud.io/install/repositories/expectedbehavior/instrumental/script.deb.sh
 
-APT_STATE=$1
-APT_CACHE=$2
+APT_STATE_DIR=$1
+APT_CACHE_DIR=$2
 
 unknown_os ()
 {
@@ -112,8 +112,8 @@ main ()
   gpg_key_url="https://packagecloud.io/expectedbehavior/instrumental/gpgkey"
   apt_config_url="https://packagecloud.io/install/repositories/expectedbehavior/instrumental/config_file.list?os=${os}&dist=${dist}&source=script"
 
-  apt_source_path="$APT_STATE"
-  apt_source_config_file_list="$APT_STATE/config_file.list"
+  apt_source_path="$APT_STATE_DIR"
+  apt_source_config_file_list="$APT_STATE_DIR/config_file.list"
 
   echo -n "Installing $apt_source_config_file_list..."
 
@@ -173,7 +173,10 @@ main ()
   echo "SourceList: $apt_source_config_file_list"
   cat $apt_source_config_file_list
 
-  apt-get update -o Dir::Etc::SourceList="$apt_source_config_file_list" \
+  apt-get update -o debug::nolocking=true \
+    -o dir::cache=$APT_CACHE_DIR \
+    -o dir::state=$APT_STATE_DIR \
+    -o Dir::Etc::SourceList="$apt_source_config_file_list" \
     -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0" \
     -o Dir::Cache::Archives="$apt_source_path" # give it a temporary area to write files
   echo "done."
