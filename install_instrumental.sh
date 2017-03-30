@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo dpkg -i $1/instrumentald_1.0.2_i386.deb --force-not-root --root=$HOME 
+dpkg -i $1/instrumentald_1.0.2_i386.deb --force-not-root --root=$HOME 
 
 #
 # # Debug
