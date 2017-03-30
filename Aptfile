@@ -1,3 +1,4 @@
 curl
+ca-certificates
 install_instrumental.sh
 instrumentald
