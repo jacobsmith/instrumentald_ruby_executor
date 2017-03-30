@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dpkg -i $1/instrumentald_1.0.2_i386.deb
+sudo dpkg -i $1/instrumentald_1.0.2_i386.deb
 
 #
 # # Debug
