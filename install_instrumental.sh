@@ -112,7 +112,7 @@ main ()
   gpg_key_url="https://packagecloud.io/expectedbehavior/instrumental/gpgkey"
   apt_config_url="https://packagecloud.io/install/repositories/expectedbehavior/instrumental/config_file.list?os=${os}&dist=${dist}&source=script"
 
-  apt_source_path=$APT_STATE
+  apt_source_path="$APT_STATE/config_file.list"
 
   echo -n "Installing $apt_source_path..."
 
