@@ -113,7 +113,7 @@ main ()
   apt_config_url="https://packagecloud.io/install/repositories/expectedbehavior/instrumental/config_file.list?os=${os}&dist=${dist}&source=script"
 
   apt_source_path="$APT_STATE"
-  apt_source_config_file_list = "$APT_STATE/config_file.list"
+  apt_source_config_file_list="$APT_STATE/config_file.list"
 
   echo -n "Installing $apt_source_config_file_list..."
 
