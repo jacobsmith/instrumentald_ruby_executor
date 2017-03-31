@@ -1,8 +1,8 @@
 project_token = "<%= ENV['INSTRUMENTALD_PROJECT_TOKEN'] %>"
-system = <%= ENV['INSTRUMENTALD_SYSTEM_METRICS'] %>
-docker = <%= ENV['INSTRUMENTALD_DOCKER_URLS'].split(";") %>
-redis = <%= ENV['INSTRUMENTALD_REDIS_URLS'].split(";") %>
-memcached = <%= ENV['INSTRUMENTALD_MEMCACHED_URLS'].split(";") %>
-nginx = <%= ENV['INSTRUMENTALD_NGINX_URLS'].split(";") %>
-mysql = <%= ENV['INSTRUMENTALD_MYSQL_URLS'].split(";") %>
-postgresql = <%= ENV['INSTRUMENTALD_POSTGRESQL_URLS'].split(";") %>
+system = <%= ENV['INSTRUMENTALD_SYSTEM_METRICS'] || [] %>
+docker = <%= ENV['INSTRUMENTALD_DOCKER_URLS']&.split(";") || [] %>
+redis = <%= ENV['INSTRUMENTALD_REDIS_URLS']&.split(";") || [] %>
+memcached = <%= ENV['INSTRUMENTALD_MEMCACHED_URLS']&.split(";") || [] %>
+nginx = <%= ENV['INSTRUMENTALD_NGINX_URLS']&.split(";") || [] %>
+mysql = <%= ENV['INSTRUMENTALD_MYSQL_URLS']&.split(";") || [] %>
+postgresql = <%= ENV['INSTRUMENTALD_POSTGRESQL_URLS']&.split(";") || [] %>
