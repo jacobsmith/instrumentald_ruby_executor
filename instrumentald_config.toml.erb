@@ -1,5 +1,5 @@
 project_token = "<%= ENV['INSTRUMENTALD_PROJECT_TOKEN'] %>"
-system = <%= ENV['INSTRUMENTALD_SYSTEM_METRICS'] || [] %>
+system = <%= ENV['INSTRUMENTALD_SYSTEM_METRICS']&.split(";") || [] %>
 docker = <%= ENV['INSTRUMENTALD_DOCKER_URLS']&.split(";") || [] %>
 redis = <%= ENV['INSTRUMENTALD_REDIS_URLS']&.split(";") || [] %>
 memcached = <%= ENV['INSTRUMENTALD_MEMCACHED_URLS']&.split(";") || [] %>
