@@ -1,1 +1,1 @@
-instrumentald_agent:  ~/.apt/opt/instrumentald/lib/app/bin/instrumentald -k $INSTRUMENTALD_PROJECT_TOKEN 
+instrumentald_agent: write_config_to_file && ~/.apt/opt/instrumentald/lib/app/bin/instrumentald -c instrumentald_config.toml

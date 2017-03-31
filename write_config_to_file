@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'erb'
+
+renderer = ERB.new(File.open("instrumentald_config.toml.erb"))
+
+File.open("instrumentald_config.toml", "w") do |file|
+  file.puts renderer.result
+end
