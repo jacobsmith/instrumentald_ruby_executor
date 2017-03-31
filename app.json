@@ -1,0 +1,11 @@
+{
+  "name": "InstrumentalD",
+  "buildpacks": [
+    {
+      "url": "https://github.com/jacobsmith/heroku-buildpack-apt"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ]  
+}
