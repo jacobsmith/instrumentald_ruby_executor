@@ -2,8 +2,31 @@
 
 require 'erb'
 
-renderer = ERB.new(File.read("instrumentald_config.toml.erb"))
+class WriteConfig
+  def perform
+    renderer = ERB.new(File.read("instrumentald_config.toml.erb"))
 
-File.open("instrumentald_config.toml", "w") do |file|
-  file.puts renderer.result
+    verify_env_vars!
+
+    File.open("instrumentald_config.toml", "w") do |file|
+      file.puts renderer.result
+    end
+  end
+
+  def verify_env_vars!
+    raise "Redis urls must *not* have 'redis://' prepended to them" if ENV["INSTRUMENTALD_REDIS_URLS"]&.split(",")&.any? { |url| url.start_with?("redis://") }
+
+    if ENV["INSTRUMENTALD_POSTGRESQL_URLS"]&.split(",")&.none? { |url| url.end_with?("?sslmode=require") }
+      puts <<~WARN
+        IF YOU ARE ON HEROKU:
+
+        You need to append `?sslmode=require` to your INSTRUMENTALD_POSTGRESQL_URLS to connect to Heroku managed Postgres instances.
+
+        If You're not on Heroku:
+        You still probably should for security's sake.
+      WARN
+    end
+  end
 end
+
+WriteConfig.new.perform
