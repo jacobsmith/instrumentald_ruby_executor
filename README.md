@@ -2,6 +2,8 @@
 
 This app is designed to be a (mostly) plug-and-play InstrumentalD statistics collator. After configuring a few ENV variables, the process should automatically reach out to those services, collect the necessary statistics, and send them to the Instrumental account for graphing and analyzing.
 
+It is designed to run on top of [heroku-buildpack-instrumentald](https://github.com/jacobsmith/heroku-buildpack-instrumentald) for easy configuration.
+
 ## Configuration
 
 The following ENV vars can be set:
