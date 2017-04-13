@@ -27,6 +27,10 @@ Each of the following accepts a `;` delimited list of URLs. It also supports a s
 `INSTRUMENTALD_POSTGRESQL_URLS`
 
 
+### Heroku
+
+If you have connected a Heroku database, it will add the env var in `DATABASE_URL` to the list of urls in `INSTRUMENTALD_POSTGRESQL_URLS`, meaning that it should pick up changes in that heroku database (rotating credentials, etc.)
+
 ### Gotchas
 
 The process that configures the `toml` file has some rudimentary validation in it to help ensure the following conditions are met.
