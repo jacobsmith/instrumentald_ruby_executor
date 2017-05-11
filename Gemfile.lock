@@ -2,7 +2,10 @@ GEM
   remote: https://rubygems.org/
   specs:
     blankslate (2.1.2.4)
+    bson (4.2.1)
     instrumental_agent (1.0.1)
+    mongo (2.4.1)
+      bson (>= 4.2.1, < 5.0.0)
     parslet (1.5.0)
       blankslate (~> 2.0)
     pidly (0.1.3)
@@ -14,8 +17,12 @@ PLATFORMS
 
 DEPENDENCIES
   instrumental_agent
+  mongo (~> 2.4)
   pidly
   toml
+
+RUBY VERSION
+   ruby 2.3.1p112
 
 BUNDLED WITH
    1.14.3
