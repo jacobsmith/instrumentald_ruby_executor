@@ -6,4 +6,4 @@ sed s/,//g                           | # remove the comma
 xargs -L 1 echo heroku.dyno-count.$1 | # echo an identifier for each, i.e., heroku.dyno.web.count
 sed 's/ //g'                         | # remove any remaining whitespace (not sure why it's there)
 uniq -c                              | # get a count of each unique identifier eg. ( 3 heroku.dyno.web.count \n 2 heroku.dyno.sidekiq.count )
-awk '{print $2,$1}'                    # switch them around so it's identifier then count to meet instrumental's requirements
+awk '{print $2,$1}'                    # switch them around so it's identifier then count to meet Instrumental's requirements
