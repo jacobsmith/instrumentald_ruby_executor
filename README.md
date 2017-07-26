@@ -4,7 +4,7 @@ This app is designed to be a (mostly) plug-and-play InstrumentalD statistics col
 
 It is designed to run on top of [heroku-buildpack-instrumentald](https://github.com/jacobsmith/heroku-buildpack-instrumentald) for easy configuration.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/jacobsmith/instrumentald_ruby_executor)
 
 ## Configuration
 
