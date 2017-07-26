@@ -4,6 +4,23 @@
   "repository": "https://github.com/jacobsmith/instrumentald_ruby_execturo",
   "logo": "https://d3jsyb803u34tf.cloudfront.net/assets/logo-full_light-a9eeaa92be81e6b9203668024dce0b0085667194d89da6d8252c0daec9cecf87.svg",
   "keywords": ["instrumental", "instrumentald", "system monitoring"],
+  "addons": [
+   {
+      "plan": "heroku-postgresql"
+   }
+  ],
+  "env": {
+    "INSTRUMENTALD_SYSTEM_METRICS": {
+      "description": "This controls whether or not system metrics (CPU, RAM, etc.) are gathered. Because this is running in a separate Heroku dyno, its own system metrics are of little to no value.",
+      "value": "false" 
+    }
+  },
+  "formation": {
+    "instrumentald_agent": { 
+      "quantity": 1,
+      "size": "free"
+    }
+  },
   "buildpacks": [
     {
       "url": "https://github.com/jacobsmith/heroku-buildpack-instrumentald"
