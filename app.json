@@ -1,7 +1,7 @@
 {
   "name": "InstrumentalD Executor",
   "description": "Quickly setup InstrumentalD on Heroku",
-  "repository": "https://github.com/jacobsmith/instrumentald_ruby_execturo",
+  "repository": "https://github.com/jacobsmith/instrumentald_ruby_executor",
   "logo": "https://d3jsyb803u34tf.cloudfront.net/assets/logo-full_light-a9eeaa92be81e6b9203668024dce0b0085667194d89da6d8252c0daec9cecf87.svg",
   "keywords": ["instrumental", "instrumentald", "system monitoring"],
   "addons": [
