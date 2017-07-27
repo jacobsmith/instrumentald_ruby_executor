@@ -10,10 +10,45 @@
    }
   ],
   "env": {
+    "INSTRUMENTALD_PROJECT_TOKEN": {
+      "description": "Your Instrumental Project Token, found in your settings page.",
+      "required": true
+    },
     "INSTRUMENTALD_SYSTEM_METRICS": {
       "description": "This controls whether or not system metrics (CPU, RAM, etc.) are gathered. Because this is running in a separate Heroku dyno, its own system metrics are of little to no value.",
-      "value": "false" 
-    }
+      "value": "false" ,
+      "required": false
+    },
+    "INSTRUMENTALD_DOCKER_URLS": {
+      "description": "Semi-colon delimited list of Docker URLs to monitor",
+      "value": "",
+      "required": false
+    },
+    "INSTRUMENTALD_REDIS_URLS": {
+      "description": "Semi-colon delimited list of Redis URLs to monitor",
+      "value": "",
+      "required": false
+    },
+    "INSTRUMENTALD_MEMCACHED_URLS": {
+      "description": "Semi-colon delimited list of Memcached URLs to monitor",
+      "value": "",
+      "required": false
+    },
+    "INSTRUMENTALD_NGINX_URLS": {
+      "description": "Semi-colon delimited list of nginx URLs to monitor",
+      "value": "",
+      "required": false
+    },
+    "INSTRUMENTALD_MYSQL_URLS": {
+      "description": "Semi-colon delimited list of MySQL URLs to monitor",
+      "value": "",
+      "required": false
+    },
+    "INSTRUMENTALD_POSTGRESQL_URLS": {
+      "description": "Semi-colon delimited list of PostgresQL URLs to monitor",
+      "value": "",
+      "required": false
+    },
   },
   "formation": {
     "instrumentald_agent": { 
